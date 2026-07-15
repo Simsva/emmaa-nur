@@ -2,6 +2,7 @@
   lib,
   stdenvNoCC,
   fetchFromGitLab,
+  ...
 }:
 let
   rev = "28a9c69cd268edebe4d06b8cd8ee26637fb4d17d";
