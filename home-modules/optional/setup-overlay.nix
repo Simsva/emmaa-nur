@@ -4,6 +4,10 @@
   ...
 }:
 {
-  imports = import ../home/module-list.nix lib;
+  imports = import ../home/module-list.nix {
+    inherit
+      lib
+      ;
+  };
   config.nixpkgs.overlays = [ inputs.self.overlays.default ];
 }
