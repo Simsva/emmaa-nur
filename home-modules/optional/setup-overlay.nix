@@ -5,7 +5,7 @@ flakeInputs:
   ...
 }:
 {
-  imports = import ../home/module-list.nix {
+  imports = import ../base/module-list.nix {
     inherit
       lib
       ;
