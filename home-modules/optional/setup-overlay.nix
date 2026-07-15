@@ -5,10 +5,8 @@ flakeInputs:
   ...
 }:
 {
-  imports = import ../base/module-list.nix {
-    inherit
-      lib
-      ;
-  };
+  imports = [
+    ./add-modules.nix
+  ];
   config.nixpkgs.overlays = [ flakeInputs.self.overlays.default ];
 }

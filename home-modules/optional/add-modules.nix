@@ -1,3 +1,4 @@
+# For when you useGlobalPkgs
 flakeInputs:
 {
   inputs,
@@ -10,5 +11,4 @@ flakeInputs:
       lib
       ;
   };
-  config.nixpkgs.overlays = [ flakeInputs.self.overlays.default ];
 }
