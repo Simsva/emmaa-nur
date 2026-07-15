@@ -3,6 +3,6 @@
   ...
 }:
 {
-  imports = import ../module-list.nix;
+  imports = import ../base/module-list.nix;
   config.nixpkgs.overlays = [ inputs.self.overlays.default ];
 }
