@@ -9,5 +9,5 @@
       lib
       ;
   };
-  config.nixpkgs.overlays = [ inputs.self.overlays.default ];
+  config.nixpkgs.overlays = [ inputs.self.overlay ];
 }
