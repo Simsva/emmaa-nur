@@ -1,5 +1,6 @@
 {
   lib,
+  flakeInputs,
   ...
 }:
 with builtins;
@@ -10,6 +11,6 @@ in
 listToAttrs (
   map (m: {
     name = lib.toCamelCase (lib.removeSuffix ".nix" m);
-    value = import (dir + "/${m}");
+    value = import (dir + "/${m}") flakeInputs;
   }) optionals
 )

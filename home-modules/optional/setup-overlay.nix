@@ -1,3 +1,4 @@
+flakeInputs:
 {
   inputs,
   lib,
@@ -9,5 +10,5 @@
       lib
       ;
   };
-  config.nixpkgs.overlays = [ inputs.self.overlay ];
+  config.nixpkgs.overlays = [ flakeInputs.self.overlays.default ];
 }

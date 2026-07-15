@@ -24,9 +24,11 @@
       );
       nixosModules = import ./nixos-modules {
         inherit (nixpkgs) lib;
+        flakeInputs = inputs;
       };
       homeModules = import ./home-modules {
         inherit (nixpkgs) lib;
+        flakeInputs = inputs;
       };
       # darwinModules = import ./darwin-modules;
       # flakeModules = import ./flake-modules;
