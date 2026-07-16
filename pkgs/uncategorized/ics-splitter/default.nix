@@ -25,6 +25,7 @@ stdenvNoCC.mkDerivation rec {
 
   meta = {
     description = "A proxy for pre-processing events from iCalendar URLs";
+    homepage = "https://gitlab.com/Simsva/ics-splitter";
     license = lib.licenses.bsd3;
   };
 }
