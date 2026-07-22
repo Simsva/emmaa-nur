@@ -15,7 +15,7 @@ buildGoModule (finalAttrs: {
     owner = "Simsva";
     repo = "webwing";
     inherit rev;
-    sha256 = "";
+    sha256 = "sha256-6tvK3FI4Jl3LmcpiZzenmTPGwOO/R9WnRsI5JQs/LR4=";
   };
 
   vendorHash = null;
