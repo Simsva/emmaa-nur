@@ -5,7 +5,7 @@
   ...
 }:
 let
-  rev = "49b20cf372fbe1727e0c86da08a4ef6dbeb50376";
+  rev = "7b41ca8cba740a4528186e5a7cf5bf6e819c8749";
 in
 buildGoModule (finalAttrs: {
   pname = "webwing";
@@ -15,7 +15,7 @@ buildGoModule (finalAttrs: {
     owner = "Simsva";
     repo = "webwing";
     inherit rev;
-    sha256 = "sha256-PxrhZksk33j8UaG1eyBevd3gr1vLJqGDcEcMspusidc=";
+    sha256 = "";
   };
 
   vendorHash = null;
