@@ -1,21 +1,20 @@
 {
   lib,
   buildGoModule,
-  fetchFromGitLab,
+  fetchFromEmmaa,
   ...
 }:
 let
-  rev = "7b41ca8cba740a4528186e5a7cf5bf6e819c8749";
+  rev = "d80a313b585b54600ebd5ff98149c3de80ed86f4";
 in
 buildGoModule (finalAttrs: {
   pname = "webwing";
   version = rev;
 
-  src = fetchFromGitLab {
-    owner = "Simsva";
-    repo = "webwing";
+  src = fetchFromEmmaa {
+    repo = "webring";
     inherit rev;
-    sha256 = "sha256-6tvK3FI4Jl3LmcpiZzenmTPGwOO/R9WnRsI5JQs/LR4=";
+    sha256 = "sha256-nx3KMnBSEsefWqllt60qLKJFjGgGuzkevfaEoQ4r1nM=";
   };
 
   vendorHash = null;
@@ -27,7 +26,7 @@ buildGoModule (finalAttrs: {
 
   meta = {
     description = "A really simple webring server that generates a homepage with 88x31 buttons.";
-    homepage = "https://gitlab.com/Simsva/webwing";
+    homepage = "https://git.emmaa.tech/emma/webring";
     license = lib.licenses.bsd3;
   };
 })

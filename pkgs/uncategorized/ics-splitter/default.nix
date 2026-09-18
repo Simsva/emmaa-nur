@@ -1,7 +1,7 @@
 {
   lib,
   stdenvNoCC,
-  fetchFromGitLab,
+  fetchFromEmmaa,
   ...
 }:
 let
@@ -11,8 +11,7 @@ stdenvNoCC.mkDerivation rec {
   pname = "ics-splitter";
   version = rev;
 
-  src = fetchFromGitLab {
-    owner = "Simsva";
+  src = fetchFromEmmaa {
     repo = "ics-splitter";
     inherit rev;
     sha256 = "sha256-CJuQ/3AJHU3C66496OLcB5pz+12bF8w9Wzt0zDTq2j8=";
@@ -25,7 +24,7 @@ stdenvNoCC.mkDerivation rec {
 
   meta = {
     description = "A proxy for pre-processing events from iCalendar URLs";
-    homepage = "https://gitlab.com/Simsva/ics-splitter";
+    homepage = "https://git.emmaa.tech/emma/ics-splitter";
     license = lib.licenses.bsd3;
   };
 }

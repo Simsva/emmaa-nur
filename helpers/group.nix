@@ -3,7 +3,8 @@
   lib,
   mode,
   inputs,
-}:
+  ...
+}@inputs':
 rec {
   ifNotCI = p: if mode == "ci" then null else p;
   ifNotNUR = p: if mode == "nur" then null else p;
@@ -20,6 +21,7 @@ rec {
           inputs
           ;
       }
+      // (import ./pkgdeps inputs')
     );
 
   # Valid dependencies for default.nix in a group
