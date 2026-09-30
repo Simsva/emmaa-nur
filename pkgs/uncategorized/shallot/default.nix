@@ -5,7 +5,7 @@
   ...
 }:
 let
-  rev = "cd15596b1e194988e19d19988228a75ee9a1b7b2";
+  rev = "56636446a93cddb9ad2b58ad491d3160dc7a02c8";
 in
 buildGoModule (finalAttrs: {
   pname = "shallot";
@@ -14,7 +14,7 @@ buildGoModule (finalAttrs: {
   src = fetchFromEmmaa {
     repo = "shallot";
     inherit rev;
-    sha256 = "sha256-i5Fkr+qyDBkcbDzLe29QKU9Ydw4haiSoYjo05ox33lU=";
+    sha256 = "sha256-J8kyjP5I0XFrxHJJM/VvJK0K5lBg5XrLvveuqQYW9HY=";
   };
 
   vendorHash = null;

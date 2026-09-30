@@ -38,7 +38,7 @@ in
       default = 5000;
     };
     index = mkOption {
-      description = "HTML file to serve as the homepage. See the shallot repo on git.emmaa.tech for more information.";
+      description = "HTML file to serve as the homepage. See the https://git.emmaa.tech/emma/shallot for more information.";
       type = types.path;
       default = "${config.services.shallot.package}/examples/index.html";
     };
@@ -61,7 +61,12 @@ in
               type = types.str;
             };
             buttonAltText = mkOption {
-              description = "Alt text to use if an 88x31 button GIF is found in the static files";
+              description = "Alt text to use for the 88x31 button. If left empty a button will not render.";
+              type = types.str;
+              default = "";
+            };
+            buttonUrl = mkOption {
+              description = "URL to the site's 88x31 button. If left empty it defaults to `/static/buttons/slug.gif`";
               type = types.str;
               default = "";
             };
@@ -82,7 +87,7 @@ in
 
     users.users.${cfg.user} = {
       inherit (cfg) group;
-      description = "Webwing daemon user";
+      description = "Shallot daemon user";
       isSystemUser = true;
     };
     users.groups.${cfg.group} = { };
@@ -90,7 +95,10 @@ in
     systemd.services.shallot =
       let
         sanitizeText = replaceString "|" "";
-        mkSite = site: "${site.slug}|${sanitizeText site.buttonAltText}|${site.url}";
+        sanitizeUrl = replaceString "|" "%7C";
+        mkSite =
+          site:
+          "${sanitizeText site.slug}|${sanitizeUrl site.url}|${sanitizeText site.buttonAltText}|${sanitizeUrl site.buttonUrl}";
         sitesFile = pkgs.writeText "sites.txt" (concatLines (map mkSite cfg.sites));
       in
       {
