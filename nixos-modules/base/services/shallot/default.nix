@@ -6,30 +6,30 @@
 }:
 with lib;
 let
-  cfg = config.services.webwing;
+  cfg = config.services.shallot;
 
   missingSlugSites = filter (s: isNull s.slug) cfg.sites;
   missingUrlSites = filter (s: isNull s.url) cfg.sites;
 
-  webwingExe = getExe' cfg.package "webwing";
+  shallotExe = getExe' cfg.package "shallot";
 in
 {
-  options.services.webwing = {
-    enable = mkEnableOption "Enable webwing service";
+  options.services.shallot = {
+    enable = mkEnableOption "Enable shallot service";
     package = mkOption {
-      description = "The webwing package to use";
+      description = "The shallot package to use";
       type = types.package;
-      default = pkgs.webwing;
+      default = pkgs.shallot;
     };
     user = mkOption {
       description = "User to run the service as";
       type = types.str;
-      default = "webwing";
+      default = "shallot";
     };
     group = mkOption {
       description = "Group to run the service as";
       type = types.str;
-      default = "webwing";
+      default = "shallot";
     };
 
     port = mkOption {
@@ -38,9 +38,9 @@ in
       default = 5000;
     };
     index = mkOption {
-      description = "HTML file to serve as the homepage. See the webwing repo on GitLab for more information.";
+      description = "HTML file to serve as the homepage. See the shallot repo on git.emmaa.tech for more information.";
       type = types.path;
-      default = "${config.services.webwing.package}/examples/index.html";
+      default = "${config.services.shallot.package}/examples/index.html";
     };
     static = mkOption {
       description = "Directory of static files to serve on /static.";
@@ -87,7 +87,7 @@ in
     };
     users.groups.${cfg.group} = { };
 
-    systemd.services.webwing =
+    systemd.services.shallot =
       let
         sanitizeText = replaceString "|" "";
         mkSite = site: "${site.slug}|${sanitizeText site.buttonAltText}|${site.url}";
@@ -112,11 +112,11 @@ in
 
         serviceConfig = {
           Type = "simple";
-          ExecStart = "${webwingExe}";
+          ExecStart = "${shallotExe}";
           User = cfg.user;
-          RuntimeDirectory = "webwing";
+          RuntimeDirectory = "shallot";
           RuntimeDirectoryPreserve = "no";
-          WorkingDirectory = "/run/webwing";
+          WorkingDirectory = "/run/shallot";
         };
       };
   };

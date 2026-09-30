@@ -5,16 +5,16 @@
   ...
 }:
 let
-  rev = "d80a313b585b54600ebd5ff98149c3de80ed86f4";
+  rev = "cd15596b1e194988e19d19988228a75ee9a1b7b2";
 in
 buildGoModule (finalAttrs: {
-  pname = "webwing";
+  pname = "shallot";
   version = rev;
 
   src = fetchFromEmmaa {
-    repo = "webring";
+    repo = "shallot";
     inherit rev;
-    sha256 = "sha256-nx3KMnBSEsefWqllt60qLKJFjGgGuzkevfaEoQ4r1nM=";
+    sha256 = "sha256-i5Fkr+qyDBkcbDzLe29QKU9Ydw4haiSoYjo05ox33lU=";
   };
 
   vendorHash = null;
@@ -26,7 +26,7 @@ buildGoModule (finalAttrs: {
 
   meta = {
     description = "A really simple webring server that generates a homepage with 88x31 buttons.";
-    homepage = "https://git.emmaa.tech/emma/webring";
+    homepage = "https://git.emmaa.tech/emma/shallot";
     license = lib.licenses.bsd3;
   };
 })
